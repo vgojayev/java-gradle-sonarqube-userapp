@@ -1,8 +1,5 @@
 pipeline {
  
-        def SONARQUBE_HOSTNAME = 'localhost'
-
-        def GRADLE_HOME = tool name: 'gradle', type: 'hudson.plugins.gradle.GradleInstallation'
         agent {
                 label 'master'
         }
@@ -13,6 +10,7 @@ pipeline {
 
         environment {
                 VERSION = "jellybean"
+                SONARQUBE_HOSTNAME = 'localhost'
         }
 
         stages {
@@ -36,6 +34,7 @@ pipeline {
 
                         when {
                         environment name: 'VERSION', value: 'jellybean'
+                         
                         }
                 }
 
