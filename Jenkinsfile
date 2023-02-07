@@ -38,11 +38,7 @@ pipeline {
                         }
                 }
 
-                stage('Build') {
-                        steps {
-                        sh "gradle build"
-                }
-                }
+                
                 stage('sonar-scanner') {
                  steps {
                   echo "Starting Scanner"
@@ -52,6 +48,12 @@ pipeline {
                      sh "${sonarqubeScannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://${SONARQUBE_HOSTNAME}:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=UserMgmtApi -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=GS -Dsonar.sources=src/main/  -Dsonar.java.binaries=build/**/* -Dsonar.language=java"
                   }
                 }
+                }
+                }
+         
+                stage('Build') {
+                        steps {
+                        sh "gradle build"
                 }
                 }
         }
