@@ -38,6 +38,11 @@ pipeline {
                         }
                 }
 
+               stage('Build') {
+                        steps {
+                        sh "gradle build"
+                }
+                }
                 
                 stage('sonar-scanner') {
                  steps {
@@ -51,10 +56,6 @@ pipeline {
                 }
                 }
          
-                stage('Build') {
-                        steps {
-                        sh "gradle build"
-                }
-                }
+                
         }
 }
