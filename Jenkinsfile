@@ -19,7 +19,7 @@ pipeline {
                         checkout([$class: 'GitSCM',
                                         branches: [[name: 'master']],
                                         extensions: [[$class: 'WipeWorkspace']],
-                                        userRemoteConfigs: [[url: 'https://github.com/vgojayev/usermgmt-jenkins-lab.git']]
+                                        userRemoteConfigs: [[url: 'https://github.com/vgojayev/java-gradle-sonarqube-userapp.git']]
                         
                         ])
                         }
